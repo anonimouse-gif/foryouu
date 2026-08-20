@@ -1,0 +1,244 @@
+/* 1. Dito nagsisimula ang smooth na paglipat ng screen */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* 2. UNANG SCREEN: Sakop ang buong screen para button lang ang makita */
+.first-screen {
+    width: 100%;
+    height: 100vh; /* Sakop ang buong taas ng monitor/phone */
+    background-color: #380000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. PANGALAWANG SCREEN: Dito nakatago ang Spotify card sa ibaba */
+.second-screen {
+    width: 100%;
+    height: 100vh; /* Sakop din ang buong screen sa ibaba */
+    background-color: #1f0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 4. Spotify Card Container (Pinalitan ang dating .content-box) */
+.spotify-card {
+    width: 320px;
+    background-color: #121212; /* Spotify dark background color */
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 153, 0, 0.3); /* May kasamang konting glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.spotify-card:hover {
+    transform: translateY(-5px);
+    background-color: #1a1a1a;
+}
+
+/* Ang mismong Larawan sa loob ng Card */
+.card-img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Ang Text sa Ilalim (Title at Artist) */
+.card-info {
+    text-align: left;
+    width: 100%;
+    color: #ffffff;
+}
+
+.card-info h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #ffffff;
+}
+
+.card-info p {
+    font-size: 14px;
+    color: #b3b3b3; /* Kulay abo na text na parang Spotify artist subtitle */
+    margin: 0;
+}
+
+/* 5. Ang Squishy Glow Button mo */
+.squishy-glow-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #ff9900;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.6), 0 0 30px rgba(255, 153, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.squishy-glow-btn:hover {
+    box-shadow: 0 0 25px rgba(255, 153, 0, 0.9), 0 0 50px rgba(255, 153, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.squishy-glow-btn:active {
+    transform: scale(0.92) translateY(2px);
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+}
+.hidden-spotify {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: none;
+    visibility: hidden;
+}
+html {
+    scroll-behavior: smooth;
+}
+.spotify-card {
+    /* Ilagay dito ang dati mong design, pero siguraduhing may tamang sukat */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+/* BACK BUTTON */
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.2),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.back-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* CLICK */
+.back-btn:active {
+    transform: scale(0.95);
+}
+/* =========================
+   PHOTO GLOW
+========================= */
+
+.spotify-card {
+    position: relative;
+}
+
+.spotify-card.music-playing .card-img {
+    animation: photoGlow 2s ease-in-out infinite;
+}
+
+@keyframes photoGlow {
+
+    0% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.3),
+            0 0 20px rgba(255, 105, 180, 0.2);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(235, 38, 38, 0.664),
+            0 0 40px rgb(146, 14, 10),
+            0 0 70px rgb(185, 23, 23);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.3),
+            0 0 20px rgba(255, 105, 180, 0.2);
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    animation:
+        floatHeart 4s linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(0)
+            scale(0.5)
+            rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            translateX(30px)
+            scale(1)
+            rotate(15deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-110vh)
+            translateX(-30px)
+            scale(1.3)
+            rotate(-15deg);
+    }
+}

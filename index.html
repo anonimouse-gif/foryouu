@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>anonimouse</title>
+</head>
+
+<body>
+
+    <!-- SCREEN 1 -->
+    <section class="first-screen">
+
+        <a href="#blank-section"
+           class="squishy-glow-btn"
+           onclick="playMusic(event)">
+            Click me
+        </a>
+
+    </section>
+
+
+    <!-- SCREEN 2 -->
+    <section id="blank-section" class="second-screen">
+
+        <div class="spotify-card">
+
+            <!-- PICTURE -->
+            <img src="images/wao.jfif"
+                 alt="Album Cover"
+                 class="card-img">
+
+
+            <!-- SONG INFO -->
+            <div class="card-info">
+                <h2>It Might Be You</h2>
+                <p>Stephen Bishop</p>
+            </div>
+
+
+            <!-- BACKGROUND MUSIC -->
+            <audio id="bg-music"
+                   src="music/you.mp3"
+                   preload="auto">
+            </audio>
+
+
+            <!-- BACK BUTTON -->
+            <a href="#"
+               class="back-btn"
+               onclick="goBackToTop(event)">
+                ← Back
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
